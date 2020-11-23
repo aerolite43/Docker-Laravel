@@ -6,5 +6,8 @@
     </head>
     <body>
         @yield('content')
+
+        @include('inc.sidebar')
+
     </body>
 </html>
