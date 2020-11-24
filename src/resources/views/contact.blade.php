@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('page_title')
+    {{ "Contact Page" }}
+@endsection
+
 @section('content')
     <h1>Contact</h1>
     {!! Form::open(['url' => 'contact/submit']) !!}
