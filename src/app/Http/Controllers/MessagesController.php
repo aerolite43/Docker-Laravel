@@ -10,7 +10,7 @@ class MessagesController extends Controller
     public function submit(Request $request) {
         $this->validate($request, array(
             'name' => 'required',
-            'email'=> 'required'
+            'email'=> 'required|email'
         ));
         
         // Create a new message
@@ -22,7 +22,13 @@ class MessagesController extends Controller
         // Save message
         $message->save();
 
-        // Redirect
-        return redirect('/');
+        // Redirect with Flash message.
+        return redirect('/')->with('success', 'Message sent!');
+    }
+
+    public function getMessage() {
+        $messages = Message::all();
+        
+        return view('messages')->with('messages', $messages);
     }
 }

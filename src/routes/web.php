@@ -13,17 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'App\Http\Controllers\PagesController@getHome');
+Route::get('/about', 'App\Http\Controllers\PagesController@getAbout');
+Route::get('/contact', 'App\Http\Controllers\PagesController@getContact');
 
-Route::get('/about', function () {
-    return view('about');
-});
 
-Route::get('/contact', function () {
-    return view('contact');
-});
-
+Route::get('/messages', 'App\Http\Controllers\MessagesController@getMessage');
 
 Route::post('/contact/submit', 'App\Http\Controllers\MessagesController@submit');
